@@ -38,7 +38,7 @@ void Diversions::flowRateForDate(int m, int d, int y)
     }
 }
 
-bool Diversions::flowRateForDate1()
+void Diversions::flowRateForDate()
 {
     for(int i=0; i<=33511; i++)
     {
@@ -89,10 +89,10 @@ void Diversions::leapyear()
        }
     }
 }
-bool Diversions::leapyear1(int year)
+bool Diversions::leapyear(int year)
 {
-    bool leapyear;
-    if (year%4 == 0)
+   bool leapyear;
+   if (year%4 == 0)
    {
         if(year%100 == 0)
         {
@@ -114,21 +114,18 @@ bool Diversions::leapyear1(int year)
    {
        leapyear = false;
    }
+   return leapyear;
 }
 //This is a function that finds the factorial of a number and is used in checkDataMissingDates
 int Diversions::factorial(int n)
 {
     int factorial = 0;
-    for(int i=0; i<=n; i++)
+	if (n == 0 || n == 1)	//if n is 0 or 1, return 1 without looping. This also allows for the loop to run without checking this condition every time
+		return 1;
+
+    for(int i=1; i<=n; i++)	//
     {
-        if(i==0)
-        {
-            factorial =1;
-        }
-        else
-        {
-            factorial = factorial * i;
-        }
+        factorial = factorial * i;
     }
     return factorial;
 }
@@ -138,110 +135,87 @@ void Diversions::checkDataMissingDates()
     int year = 04;
     for(int i=0; i<=33511; i++)
     {
-        if(dayArray[i].year = year)
+        if(dayArray[i].year == year)
         {
             int jan = 31;
-            int countJ = 1;
-            int indexJ;
+ 			int countJ = 1;
             int feb = 28;
             int countF =1;
-            int indexF;
             if(dayArray[i].leapyear == true)
             {
                 feb = 29;
             }
             int mar = 31;
             int countMar =1;
-            int indexMar;
             int april = 30;
             int countApr =1;
-            int indexApr;
             int may = 31;
             int countMay = 1;
-            int indexMay;
             int june = 30;
             int countJune =1;
-            int indexJune;
             int july = 31;
             int countJuly =1;
-            int indexJuly;
             int aug = 30;
             int countAug =1;
-            int indexAug;
             int sep = 31;
             int countSep =1;
-            int indexSep;
             int oct = 30;
             int countOct =1;
-            int indexOct;
             int nov = 31;
             int countNov =1;
-            int indexNov;
             int dec = 30;
             int countDec =1;
-            int indexDec;
+
             for(int i=0; i<=33511; i++)
             {
                 if(dayArray[i].year == year)
                 {
                     if(dayArray[i].month == 1)
                     {
-                        indexJ = i;
                         countJ = countJ * dayArray[i].day;
                     }
                     else if(dayArray[i].month == 2)
                     {
-                        indexF = i;
                         countF = countF * dayArray[i].day;
                     }
                     else if(dayArray[i].month == 3)
                     {
-                        indexMar = i;
                         countMar = countMar * dayArray[i].day;
                     }
                     else if(dayArray[i].month == 4)
                     {
-                        indexApr = i;
                         countApr = countApr * dayArray[i].day;
                     }
                     else if(dayArray[i].month == 5)
                     {
-                        indexMay = i;
                         countMay = countMay * dayArray[i].day;
                     }
                     else if(dayArray[i].month == 6)
                     {
-                        indexJune = i;
                         countJune = countJune * dayArray[i].day;
                     }
                     else if(dayArray[i].month == 7)
                     {
-                        indexJuly = i;
                         countJuly = countJuly * dayArray[i].day;
                     }
                     else if(dayArray[i].month == 8)
                     {
-                        indexAug = i;
                         countAug = countAug * dayArray[i].day;
                     }
                     else if(dayArray[i].month == 9)
                     {
-                        indexSep = i;
                         countSep = countSep * dayArray[i].day;
                     }
                     else if(dayArray[i].month == 10)
                     {
-                        indexOct = i;
                         countOct = countOct * dayArray[i].day;
                     }
                     else if(dayArray[i].month == 11)
                     {
-                        indexNov = i;
                         countNov = countNov * dayArray[i].day;
                     }
                     else if(dayArray[i].month == 12)
                     {
-                        indexDec = i;
                         countDec = countDec * dayArray[i].day;
                     }
                     if(countJ != factorial(jan))
@@ -307,7 +281,6 @@ void Diversions::checkDataMissingDates()
                 }
                  year++;
         }
-
     }
 }
 }
@@ -458,7 +431,7 @@ void Diversions::frequencyAnalysis(int monthS, int dayS, int yearS, int monthE, 
                 countFrequency++;
             }
         }
-        cout<<"In the range of flow rates"<<Min<<"to "<<Min + step<<"the number of days was "<<countFrequency<<endl;
+        cout<<"In the range of flow rates "<<Min<<" to "<<Min + step<<" the number of days was "<<countFrequency<<endl;
         Min = Min+step;
         iteration++;
     }

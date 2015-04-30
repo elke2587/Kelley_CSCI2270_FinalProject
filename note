@@ -1,0 +1,4 @@
+Removed date indexes, not being used.
+changed functions to overload and return values (leapyear1 and flowratefordate1)
+made leapyear return the bool
+chanegd if statement from assignment to evaluate operand

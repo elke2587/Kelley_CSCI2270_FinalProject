@@ -23,13 +23,13 @@ class Diversions
         Diversions(Day *);
         virtual ~Diversions();
         void flowRateForDate(int m, int d, int y);
-        bool flowRateForDate1();
+		void flowRateForDate();
         void leapyear();
         void checkDataMissingDates();
         int factorial(int n);
         void wateryear();
         void meanmedian(int monthS, int dayS, int yearS, int monthE,int dayE,int yearE);
-        bool leapyear1(int year);
+        bool leapyear(int year);
         void assignDiversion();
         void frequencyAnalysis(int monthS, int dayS, int yearS, int monthE, int dayE, int yearE);
         int median(int monthS, int dayS, int yearS, int monthE, int dayE, int yearE);
