@@ -9,6 +9,7 @@ The water shed on the western slope of Colorado has been depleted over the last 
 3. then type ./ColoradoRiver.out
 
 **Dependencies:**
+No dependencies.
 
 **System Requirements:**
 The program can be run on any operating system. The only requirement is that the computer is connected to the Internet when you clone the repository. 
