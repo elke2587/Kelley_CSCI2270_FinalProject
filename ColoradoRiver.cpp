@@ -84,7 +84,7 @@ int main(int argc,char *argv[])
             string month, day, year;
             
             cin.clear();
-			cin.ignore(10000,'\n');
+            cin.ignore(10000,'\n');
             
             cout<<"Enter month: "<<endl;
             getline(cin,month);
@@ -104,7 +104,7 @@ int main(int argc,char *argv[])
             string month, day, year, month2, day2, year2;
             
             cin.clear();
-			cin.ignore(10000,'\n');
+            cin.ignore(10000,'\n');
 			            
             cout<<"Enter start month: "<<endl;
             getline(cin,month);
@@ -137,7 +137,7 @@ int main(int argc,char *argv[])
 			string month, day, year, month2, day2, year2;
             
             cin.clear();
-			cin.ignore(10000,'\n');
+            cin.ignore(10000,'\n');
 			
             cout<<"Enter start month: "<<endl;
             getline(cin,month);
