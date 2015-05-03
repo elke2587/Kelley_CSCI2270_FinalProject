@@ -12,7 +12,7 @@ The water shed on the western slope of Colorado has been depleted over the last 
 No dependencies.
 
 **System Requirements:**
-The program can be run on any operating system. The only requirement is that the computer is connected to the Internet when you clone the repository. 
+The program is designed to run on a UNIX machine. The only requirement is that the computer is connected to the Internet when you clone the repository. 
 
 **Group Members:**
 Elsa Kelley
