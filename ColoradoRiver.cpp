@@ -81,64 +81,50 @@ int main(int argc,char *argv[])
         }
         if(choice == 2)
         {
+            string month, day, year;
+            
+            cin.clear();
+			cin.ignore(10000,'\n');
+            
             cout<<"Enter month: "<<endl;
-            string month;
-			cin.ignore(1000, '\n');//the cin buffer stream has something in it that is being taken     in for 'day'. This will ignore it to capture the real input.
             getline(cin,month);
 
             cout<<"Enter day: "<<endl;
-            string day;
-			
             getline(cin,day);
 
             cout<<"Enter year (1904 -> 04): "<<endl;
-            string year;
-
             getline(cin,year);
 
             moffat.flowRateForDate(atoi(month.c_str()), atoi(day.c_str()), atoi(year.c_str()));
-			//you can just call atoi() in the function to avoid creating temporary local variables
+			//Passing the return value of atoi directly to the flowRateForData function lowers the number of variables required, and therefore the amount of memory; 
 
         }
         if(choice == 3)
         {
+            string month, day, year, month2, day2, year2;
+            
+            cin.clear();
+			cin.ignore(10000,'\n');
+			            
             cout<<"Enter start month: "<<endl;
-            string month;
-
             getline(cin,month);
-            int month1S = atoi(month.c_str());
 
             cout<<"Enter start day: "<<endl;
-            string day;
-
             getline(cin,day);
-            int day1S = atoi(day.c_str());
 
             cout<<"Enter start year (1904 -> 04): "<<endl;
-            string year;
-
             getline(cin,year);
-            int year1S = atoi(year.c_str());
 
             cout<<"Enter end month: "<<endl;
-            string month2;
-
             getline(cin,month2);
-            int month1E = atoi(month.c_str());
 
             cout<<"Enter end day: "<<endl;
-            string day2;
-
             getline(cin,day2);
-            int day1E = atoi(day.c_str());
 
             cout<<"Enter end year (1904 -> 04): "<<endl;
-            string year2;
-
             getline(cin,year2);
-            int year1E = atoi(year.c_str());
 
-            moffat.frequencyAnalysis(month1S, day1S, year1S, month1E, day1E, year1E);
+            moffat.frequencyAnalysis(atoi(month.c_str()), atoi(day.c_str()), atoi(year.c_str()), atoi(month2.c_str()), atoi(day2.c_str()), atoi(year2.c_str()));
 
         }
         if(choice == 4)
@@ -148,43 +134,30 @@ int main(int argc,char *argv[])
         }
         if(choice == 5)
         {
+			string month, day, year, month2, day2, year2;
+            
+            cin.clear();
+			cin.ignore(10000,'\n');
+			
             cout<<"Enter start month: "<<endl;
-            string month;
-
             getline(cin,month);
-            int month1S = atoi(month.c_str());
 
             cout<<"Enter start day: "<<endl;
-            string day;
-
             getline(cin,day);
-            int day1S = atoi(day.c_str());
 
             cout<<"Enter start year (1904 -> 04): "<<endl;
-            string year;
-
             getline(cin,year);
-            int year1S = atoi(year.c_str());
 
             cout<<"Enter end month: "<<endl;
-            string month2;
-
             getline(cin,month2);
-            int month1E = atoi(month.c_str());
 
             cout<<"Enter end day: "<<endl;
-            string day2;
-
             getline(cin,day2);
-            int day1E = atoi(day.c_str());
 
             cout<<"Enter end year (1904 -> 04): "<<endl;
-            string year2;
-
             getline(cin,year2);
-            int year1E = atoi(year.c_str());
 
-            moffat.meanmedian(month1S, day1S, year1S, month1E, day1E, year1E);
+            moffat.meanmedian(atoi(month.c_str()), atoi(day.c_str()), atoi(year.c_str()), atoi(month2.c_str()), atoi(day2.c_str()), atoi(year2.c_str()));
         }
 		if (choice == 6)
 		{
