@@ -65,44 +65,42 @@ int main(int argc,char *argv[])
         dayArray[j] = newObject;
         j++;
     }
-    string choice = "";
+    int choice = 0;
 
-    while(choice != "6")
+    while(choice != 6)
     {
         displayMenu();
         cin>>choice;
         //This choice is used to set all of the struct values.
-        if(choice == "1")
+        if(choice == 1)
         {
-            moffat.flowRateForDate1();
+            moffat.flowRateForDate();
             moffat.leapyear();
             moffat.checkDataMissingDates();
             moffat.assignDiversion();
         }
-        if(choice == "2")
+        if(choice == 2)
         {
             cout<<"Enter month: "<<endl;
             string month;
-
+			cin.ignore(1000, '\n');//the cin buffer stream has something in it that is being taken     in for 'day'. This will ignore it to capture the real input.
             getline(cin,month);
-            int month1 = atoi(month.c_str());
 
             cout<<"Enter day: "<<endl;
             string day;
-
+			
             getline(cin,day);
-            int day1 = atoi(day.c_str());
 
             cout<<"Enter year (1904 -> 04): "<<endl;
             string year;
 
             getline(cin,year);
-            int year1 = atoi(year.c_str());
 
-            moffat.flowRateForDate(month1, day1, year1);
+            moffat.flowRateForDate(atoi(month.c_str()), atoi(day.c_str()), atoi(year.c_str()));
+			//you can just call atoi() in the function to avoid creating temporary local variables
 
         }
-        if(choice == "3")
+        if(choice == 3)
         {
             cout<<"Enter start month: "<<endl;
             string month;
@@ -140,15 +138,15 @@ int main(int argc,char *argv[])
             getline(cin,year2);
             int year1E = atoi(year.c_str());
 
-            moffat.frequencyAnalysis( month1S, day1S, year1S, month1E, day1E, year1E);
+            moffat.frequencyAnalysis(month1S, day1S, year1S, month1E, day1E, year1E);
 
         }
-        if(choice == "4")
+        if(choice == 4)
         {
 
             moffat.wateryear();
         }
-        if(choice == "5")
+        if(choice == 5)
         {
             cout<<"Enter start month: "<<endl;
             string month;
@@ -188,8 +186,14 @@ int main(int argc,char *argv[])
 
             moffat.meanmedian(month1S, day1S, year1S, month1E, day1E, year1E);
         }
-
+		if (choice == 6)
+		{
+			cout << "Goodbye!" << endl;
+			break;
+		}
+		if (choice > 6)
+			cout << "Please choose an option on the menu." << endl;
     }
-    cout<<"Goodbye!"<<endl;
+    
     return 0;
 }
